@@ -1,25 +1,4 @@
-//****************************************************************************************************
-//
-//		File:					BST.h
-//		
-//		Student:				Kyle McColgan
-//
-//		Assignment:	 			Program  # 9
-//
-//		Course Name:			Data Structures II
-//
-//		Course Number:			COSC 3100 - 01
-//
-//		Due:					March 23rd, 2020
-//
-//
-//		This file contains the class definiton and implementation for the BST class.
-//
-//		Other files required:
-//			1. Node.h - Node class definition
-//		 
-//		
-//****************************************************************************************************
+
 
 #ifndef BST_H
 #define BST_H
