@@ -1,28 +1,3 @@
-//****************************************************************************************************
-//
-//              File:                                   Driver.cpp
-//		
-//              Student:                                Kyle McColgan
-//
-//              Assignment:                             Assignment #6
-//
-//              Course Name:                            Principles of Programming Languages
-// 
-//              Course Number:                          COSC 3810 - 01
-//
-//              Due:                                    April 22nd, 2020
-//
-//
-//              This file contains the driver class using inherited class.
-//
-//              Other files required:
-//                      1. ProductionWorker.h - Child class declaration
-//                      2. Employee.h - Parent class declaration
-//                      3. ProductionWorker.cpp - child class implementation
-//						4. Employee.cpp - parent class implementation
-//		 
-//		
-//****************************************************************************************************
 
 #include <iostream>
 using namespace std;
