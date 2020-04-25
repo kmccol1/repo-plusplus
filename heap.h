@@ -1,27 +1,3 @@
-//****************************************************************************************************
-//
-//		File:					heap.h
-//		
-//		Student:				Kyle McColgan
-//
-//		Assignment:	 			Program  # 10
-//
-//		Course Name:			Data Structures II
-//
-//		Course Number:			COSC 3100 - 01
-//
-//		Due:					April 1st, 2020
-//
-//
-//		This file contains a max heap class implementation.
-//
-//		Other files required:
-//			1. waitList.cpp - Client application program for waiting list.
-//          2. Customer.h - Customer struct implementation & operators.
-//          3. overbooked.bin - binary file of customer records
-//		 
-//		
-//****************************************************************************************************
 
 #ifndef HEAP_H
 #define HEAP_H
