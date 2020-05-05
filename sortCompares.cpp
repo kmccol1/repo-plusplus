@@ -307,11 +307,6 @@ void putMedianLeft(int list[], int left, int right, int& comp, int& cpy)
 	comp += 3;
 
 }
-
-//TODO FIX INFINITE RECURSION?
-//
-//WTF IS THE PIVOT>???
-//CONSTRUCTION....TODOTODOTODOTODOTODOTOD!
 int partition(int list[], int left, int right, int& comp, int& cpy)
 {
 	int lte, gt, pivot;
@@ -322,9 +317,7 @@ int partition(int list[], int left, int right, int& comp, int& cpy)
 
 	while (lte < gt)
 	{
-		//cout << lte << endl;
 		lte = pivot + 1;
-		//	gt = right;
 
 		while ((lte < gt) && (++comp) && list[lte] > list[pivot])
 			lte++;
@@ -334,19 +327,14 @@ int partition(int list[], int left, int right, int& comp, int& cpy)
 
 		if (pivot + 1 <= right)
 		{
-			//swap(list[pivot], list[pivot + 1]);
-		//	cpy += 3;
 
 			if (list[lte] <= list[pivot])
 			{
 				swap(list[pivot], list[pivot + 1]);
-				//cpy += 3;
 
 				if (pivot + 1 != lte)
 				{
-					swap(list[lte], list[pivot]);
 
-				//	cpy += 3;
 				}
 
 				pivot++;
@@ -359,7 +347,6 @@ int partition(int list[], int left, int right, int& comp, int& cpy)
 				if (pivot + 1 != gt)
 				{
 					swap(list[gt], list[pivot]);
-				//	cpy += 3;
 				}
 
 				pivot++;
