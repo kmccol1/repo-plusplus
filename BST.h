@@ -29,7 +29,7 @@ class BST
 
 	public:
 		BST ( );
-	    ~BST ( );
+	       ~BST ( );
 
 		bool retrieve ( T & dataOut ) const;
 		bool insert ( const T & dataIn );
