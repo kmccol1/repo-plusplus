@@ -71,8 +71,7 @@ int fillCustomerArray( Customer arr [ ] )
 	Customer temp;
 	ifstream fin;
 	int totalCust = 0;
-
-	fin.open("C:\Users\Kyle\Desktop\ASSIGNMENT13\customerList.txt");
+	
 	if (fin.is_open())
 	{
 
@@ -118,15 +117,12 @@ int findMinQ ( Queue < Customer > lines [ ] )
 
 //****************************************************************************************************
 
-//currenntCust == 100 after 1 loop wtf
 void processCustomers(Customer arr [ ] , Queue < Customer > lines [ ] , const int time , const int totalCust , int & currentCust , ofstream & trace )
 {
 	int minQ;
 
 	while ( (currentCust < totalCust) && ( ( arr[currentCust].arrivalTime ) == time) ) 
 	{
-
-		//ALL HAVE ARRIVAL TIME == 0
 		cout << "Arrival Time: " << arr[currentCust].arrivalTime << endl;
 		minQ = findMinQ ( lines );
 
