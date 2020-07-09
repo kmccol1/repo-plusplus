@@ -5,34 +5,40 @@ template <typename T>
 struct Node
 {
 	T data;
-	Node<T>* left;
-	Node<T>* right;
-	Node() {
-		this->left = nullptr;
-		this->right = nullptr;
-		//data = 0;
-	}
-	~Node();
-	Node<T>& operator= (const Node&);
+	Node < T > * left;
+	Node < T > * right;
+	
+	
+	Node ( );
+	~Node ( );
+	Node < T > & operator= (const Node < T > & lhs);
 };
 
 template <typename T>
 class BST
 {
+	private:
+		Node < T > * root;
 
 	public:
-		BST();
-		~BST();
-		Node<T>* insert(Node<T>*&, const T &);
-		Node<T>* insert(const T&);
-		Node<T>* getRoot(){ return root; } 
-		Node<T>& operator= (const Node<T>&);
-		void display(Node<T>*);
-	private:
-		Node<T>* root;
+		BST ( );
+		~BST ( );
+		Node < T > * insert ( const Node < T > * data );
+		Node < T > * insert ( const T & dataIn );
+	
+		Node < T > & operator= ( const Node <T> * rhs );
+	
+		void display ( );
+
 };
 
-
+template < typename T > 
+Node < T > :: Node ( )
+{
+	data = 0;
+	this -> left = nullptr;
+	this -> right = nullptr;
+}
 
 template <typename T>
 Node<T>::~Node<T>()
@@ -86,9 +92,8 @@ template <typename T>
 Node<T>* BST<T>::insert(Node<T>* & root, const T & val)
 {
 	Node<T>* leaf;
-	if (root == nullptr) //empty tree
+	if (root == nullptr)
 	{
-		cout << "Root is NULL" << endl;
 		leaf = new Node<T>();
 		leaf->data = val;
 		leaf->left = leaf->right = nullptr;
