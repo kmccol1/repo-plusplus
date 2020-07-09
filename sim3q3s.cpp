@@ -21,11 +21,11 @@ using namespace std;
 
 //****************************************************************************************************
 
-int fillCustomerArray( Customer arr [ ] );
+int fillCustomerArray ( Customer arr [ ] );
 int findMinQ ( Queue < Customer > lines [ ] );
-void processCustomers(Customer arr [ ] , Queue < Customer > lines [ ] , const int time, const int totalCust ,  int & currentCust , ofstream & trace);
-void processServers(Server servers  [ ] , Queue < Customer > lines [ ]  , const int time , ofstream & trace );
-bool isAllDone(Queue < Customer > lines [ ]  , Server servers [ ] , const int totalCust , const int currentCust );
+void processCustomers ( Customer arr [ ] , Queue < Customer > lines [ ] , const int time, const int totalCust ,  int & currentCust , ofstream & trace);
+void processServers ( Server servers  [ ] , Queue < Customer > lines [ ]  , const int time , ofstream & trace );
+bool isAllDone ( Queue < Customer > lines [ ]  , Server servers [ ] , const int totalCust , const int currentCust );
 
 //****************************************************************************************************
 
@@ -175,7 +175,8 @@ void processServers(Server servers [ ] , Queue < Customer > lines [ ] , const in
 
 bool isAllDone ( Queue < Customer > lines [ ] , Server servers [ ] ,  const int currentCust , const int totalCust ) 
 {
-	return ( (lines[0].isEmpty() ) && ( lines[1].isEmpty()) && ( lines[2].isEmpty()) && (currentCust == totalCust) && (!servers[0].busy) && (!servers[1].busy) && (!servers[2].busy));
+	return ( (lines[0].isEmpty() ) && ( lines[1].isEmpty()) && ( lines[2].isEmpty()) && 
+		(currentCust == totalCust) && (!servers[0].busy) && (!servers[1].busy) && (!servers[2].busy));
 }
 
 //****************************************************************************************************
