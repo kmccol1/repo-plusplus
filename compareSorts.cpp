@@ -1,9 +1,13 @@
+//****************************************************************************************************
+
 #include <iostream>
 #include <fstream>
 #include <iomanip>
 #include <utility>
 using namespace std;
 #include "results.h"
+
+//****************************************************************************************************
 
 void getData(int list[], int size, const char fileName[]);
 
@@ -23,6 +27,8 @@ int partition(int list[], int left, int right, int& comp, int& cpy);
 void calcResults(Results& result);
 void displayResults(Results iResults, Results sResults, Results bResults,
 	Results shResults, Results hResults, Results qResults);
+
+//****************************************************************************************************
 
 int main()
 {
@@ -92,13 +98,13 @@ int main()
 	quickSort(unordered, NUM_ELEMENTS, qResults.unOrdCompares, qResults.unOrdCopies);
 	quickSort(reversed, NUM_ELEMENTS, qResults.revOrdCompares, qResults.revOrdCopies);
 	calcResults(qResults);
-
-	//11k as of 4/30
-
+	
 	displayResults(iResults, sResults, bResults, shResults, hResults, qResults);
 
 	return 0;
 }
+
+//****************************************************************************************************
 
 void getData(int list[], int size, const char fileName[])
 {
@@ -112,6 +118,8 @@ void getData(int list[], int size, const char fileName[])
 
 	fin.close();
 }
+
+//****************************************************************************************************
 
 void insertSort(int list[], int size, int& comp, int& cpy)
 {
@@ -134,6 +142,9 @@ void insertSort(int list[], int size, int& comp, int& cpy)
 	}
 
 }
+
+//****************************************************************************************************
+
 void selectSort(int list[], int size, int& comp, int& cpy)
 {
 	int minIndex;
@@ -152,6 +163,8 @@ void selectSort(int list[], int size, int& comp, int& cpy)
 		cpy += 3;
 	}
 }
+
+//****************************************************************************************************
 
 void bubbleSort(int list[], int size, int& comp, int& cpy)
 {
@@ -174,6 +187,8 @@ void bubbleSort(int list[], int size, int& comp, int& cpy)
 		}
 	}
 }
+
+//****************************************************************************************************
 
 void shellSort(int list[], int size, int& comp, int& cpy)
 {
@@ -205,6 +220,8 @@ void shellSort(int list[], int size, int& comp, int& cpy)
 	insertSort(list, size, comp, cpy);	
 }
 
+//****************************************************************************************************
+
 void heapSort(int list[], int size, int& comp, int& cpy)
 {
 	for (int i = 1; i < size; i++)
@@ -219,6 +236,8 @@ void heapSort(int list[], int size, int& comp, int& cpy)
 		_siftDown(list, 0, i, comp, cpy);
 	}
 }
+
+//****************************************************************************************************
 
 void _siftUp(int list[], int child, int& comp, int& cpy)
 {
@@ -238,6 +257,8 @@ void _siftUp(int list[], int child, int& comp, int& cpy)
 		}
 	}
 }
+
+//****************************************************************************************************
 
 void _siftDown(int list[], int parent, int heapSize, int& comp, int& cpy)
 {
@@ -260,11 +281,15 @@ void _siftDown(int list[], int parent, int heapSize, int& comp, int& cpy)
 	}
 }
 
+//****************************************************************************************************
+
 void quickSort(int list[], int size, int& comp, int& cpy)
 {
 	_quickSort(list, 0, (size - 1), comp, cpy);
 	insertSort(list, size, comp, cpy);
 }
+
+//****************************************************************************************************
 
 void _quickSort(int list[], int left, int right, int& comp, int& cpy)
 {
@@ -280,6 +305,8 @@ void _quickSort(int list[], int left, int right, int& comp, int& cpy)
 	}
 
 }
+
+//****************************************************************************************************
 
 void putMedianLeft(int list[], int left, int right, int& comp, int& cpy)
 {
@@ -307,6 +334,8 @@ void putMedianLeft(int list[], int left, int right, int& comp, int& cpy)
 	comp += 3;
 
 }
+
+//****************************************************************************************************
 int partition(int list[], int left, int right, int& comp, int& cpy)
 {
 	int lte, gt, pivot;
@@ -342,7 +371,7 @@ int partition(int list[], int left, int right, int& comp, int& cpy)
 			if (list[gt] < list[pivot])
 			{
 				swap(list[pivot], list[pivot + 1]);
-				//cpy += 3;
+				cpy += 3;
 
 				if (pivot + 1 != gt)
 				{
@@ -356,6 +385,8 @@ int partition(int list[], int left, int right, int& comp, int& cpy)
 
 	return gt;
 }
+
+//****************************************************************************************************
 
 
 void calcResults(Results& result)
@@ -375,6 +406,8 @@ void calcResults(Results& result)
 	result.avgCompares = round((double)(totalCompares) / NUM_SORTS);
 	result.avgCopies = round((double)(totalCopies) / NUM_SORTS);
 }
+
+//****************************************************************************************************
 
 void displayResults(Results iResults, Results sResults, Results bResults,
 	Results shResults, Results hResults, Results qResults)
@@ -422,3 +455,5 @@ void displayResults(Results iResults, Results sResults, Results bResults,
 		<< setw(11) << qResults.avgCompares << " / " << qResults.avgCopies;
 
 }
+
+//****************************************************************************************************
