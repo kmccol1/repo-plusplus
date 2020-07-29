@@ -30,7 +30,6 @@ class BST
 		bool retrieve ( T & dataOut ) const;
 		bool insert ( const T & dataIn );
 		bool remove ( T & dataOut );
-		bool update ( const T & dataIn );
 		void inorderTraverse ( void ( * displayStudent ) ( const T & stu ) ) const;
 
 };
@@ -211,26 +210,6 @@ Node < T > * BST < T > :: _remove ( Node < T > * pRoot , const T & dataOut )
 	}
 
 	return pRoot;
-}
-
-//****************************************************************************************************
-
-template < typename T >
-bool BST < T > :: update ( const T & dataIn )
-{
-	bool success = false;
-
-	Node < T > * pFound;
-
-	pFound = _retrieve ( root , dataIn );
-
-	if ( pFound != nullptr )
-	{
-		pFound -> data = dataIn;
-		success = true;
-	}
-
-	return success;
 }
 
 //****************************************************************************************************
