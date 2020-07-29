@@ -1,15 +1,4 @@
-//****************************************************************************************************
-//
-//		File:					sim3q3s.cpp
-//
-//		This file contains the simulation application program.
-//
-//		Other files required
-//			1. Customer.h - Customer header file
-//			2. Server.h - Server header file
-//			3. Queue.h - Doubly-linked queue implementation
-//		
-//
+
 //****************************************************************************************************
 
 #include <fstream>
