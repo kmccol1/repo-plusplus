@@ -16,16 +16,12 @@ class BST
 	private:
 		Node < T > * root;
 
-		void _destruct ( Node < T > * pRoot );
+		void _destructor ( Node < T > * pRoot );
 		Node < T > * _retrieve ( Node < T > * pRoot , const T & dataOut ) const;
 		Node < T > * _insert ( Node < T > * pRoot , const T & dataIn );
 		Node < T > * _remove ( Node < T > * pRoot , const T & dataOut );
 		void _inorderTraverse ( Node < T > * pRoot ,  void ( * displayStudent ) ( const T & stu ) ) const;
 
-		int _getCount ( Node < T > * pRoot ) const;
-		int _getHt ( Node < T > * pRoot ) const;
-		bool _isComplete ( Node < T > * pRoot ) const;
-		bool _isBalanced ( Node < T > * pRoot ) const;
 
 	public:
 		BST ( );
@@ -37,12 +33,6 @@ class BST
 		bool update ( const T & dataIn );
 		void inorderTraverse ( void ( * displayStudent ) ( const T & stu ) ) const;
 
-		int getCount ( ) const;
-		int getHt ( ) const;
-		bool isEmpty (  ) const;
-		bool isFull (  ) const;
-		bool isComplete (  ) const;
-		bool isBalanced ( ) const;
 };
 
 //****************************************************************************************************
@@ -58,13 +48,13 @@ BST < T > :: BST ( )
 template < typename T >
 BST < T > :: ~BST ( )
 {
-	_destruct ( root );
+	_destructor ( root );
 }
 
 //****************************************************************************************************
 
 template < typename T >
-void BST < T > :: _destruct ( Node < T > * pRoot )
+void BST < T > :: _destructor ( Node < T > * pRoot )
 {
 	if ( pRoot != nullptr )
 	{
@@ -280,77 +270,6 @@ int BST < T > :: _getCount ( Node < T > * pRoot ) const
 //****************************************************************************************************
 
 template < typename T >
-int BST < T > :: _getHt ( Node < T > * pRoot ) const
-{
-	int count = 0;
-
-	if ( pRoot != nullptr )
-	{
-		count = 1 + ( std::max ( _getHt ( pRoot -> left ), _getHt ( pRoot -> right ) ) ) ;
-	}
-
-	return count;
-}
-
-//****************************************************************************************************
-
-template < typename T >
-bool BST < T > :: _isComplete ( Node < T > * pRoot ) const
-{
-	bool complete = true;
-
-	if ( pRoot != nullptr )
-	{
-		if ( ( pRoot -> left != nullptr ) && ( pRoot -> right != nullptr ) )
-		{
-			complete = ( _isComplete ( pRoot -> left ) ) && ( _isComplete ( pRoot -> right ) );
-		}
-		else
-			complete = false;
-	}
-
-	return complete;
-}
-
-//****************************************************************************************************
-
-template < typename T >
-bool BST < T > :: _isBalanced ( Node < T > * pRoot ) const
-{
-	bool balanced = true;
-
-	if ( pRoot != nullptr )
-	{
-		if ( std :: abs ( ( _getHt ( pRoot -> left ) - _getHt ( pRoot -> right ) ) < 2 ) )
-		{
-			balanced = ( _isBalanced ( pRoot -> left ) ) && ( _isBalanced ( pRoot -> right ) );
-		}
-		else
-			balanced = false;
-	}
-
-	return balanced;
-}
-
-//****************************************************************************************************
-
-template < typename T >
-int BST < T > :: getCount ( ) const
-{
-	return ( _getCount ( root ) );
-}
-
-//****************************************************************************************************
-
-template < typename T >
-int BST < T > :: getHt ( ) const
-{
-	return ( _getHt ( root ) - 1 );
-}
-
-//****************************************************************************************************
-
-template < typename T >
 bool BST < T > :: isEmpty ( ) const
 {
 	bool empty = true;
@@ -382,22 +301,6 @@ bool BST < T > :: isFull ( ) const
 		full = true;
 
 	return full;
-}
-
-//****************************************************************************************************
-
-template < typename T >
-bool BST < T > :: isComplete ( ) const
-{
-	return ( _isComplete ( root ) );
-}
-
-//****************************************************************************************************
-
-template < typename T >
-bool BST < T > :: isBalanced ( ) const
-{
-	return _isBalanced ( root );
 }
 
 //****************************************************************************************************
