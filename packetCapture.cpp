@@ -15,18 +15,15 @@ using namespace std;
 
 int main ( )
 {
-    cout << "Hello World!" << endl;
+    char * device;
+    char errorMsg [81];
 
+    device = pcap_lookupdev ( errorMsg );
 
-
-
-
-
-
-
-
-
-
+    if ( device == nullptr )
+    {
+        cout << "Error: " << errorMsg << endl;
+    }
 
     return 0;
 }
