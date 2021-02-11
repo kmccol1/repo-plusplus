@@ -1,6 +1,6 @@
 //*******************************************************************************
 //    Name: Kyle McColgan
-//    Date: 9 February 2021
+//    Date: 10 February 2021
 //    File name: packetCapture.cpp
 //
 //   Description: This application program displays a list of network hosts.
@@ -15,15 +15,30 @@ using namespace std;
 
 int main ( )
 {
-    char * device;
-    char errorMsg [81];
+    const int ERROR_BUFFER_SIZE = 81;
 
-    device = pcap_lookupdev ( errorMsg );
 
-    if ( device == nullptr )
+    char * networkDevice;
+    char errorMsg [ERROR_BUFFER_SIZE];
+
+    pcap_t * sessionHandle;
+
+    networkDevice = pcap_lookupdev ( errorMsg );
+
+    if ( networkDevice == nullptr )
     {
         cout << "Error: " << errorMsg << endl;
     }
+
+    sessionHandle = pcap_open_live ( networkDevice, ERROR_BUFFER_SIZE, 1,
+                                     1000, errorMsg );
+
+    if ( sessionHandle == nullptr ) 
+    {
+        cout << "Error: " << errorMsg << endl;
+    }
+
+    pcap_close ( sessionHandle );
 
     return 0;
 }
