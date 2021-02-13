@@ -1,6 +1,6 @@
 //*******************************************************************************
 //    Name: Kyle McColgan
-//    Date: 12 February 2021
+//    Date: 13 February 2021
 //    File name: packetCapture.cpp
 //
 //   Description: This application program displays a list of network hosts.
@@ -18,7 +18,6 @@ int main ( )
     const int ERROR_BUFFER_SIZE = 81;
     struct pcap_pkrhdr firstHeader;
     struct bpf_program firstFilter;
-
 
     char * networkDevice;
     char errorMsg [ERROR_BUFFER_SIZE];
@@ -47,3 +46,17 @@ int main ( )
 
     return 0;
 }
+
+//*******************************************************************************
+
+void displayHosts ( )
+{
+    cout << "IP address    " << "    Data sent    " 
+         << "    Data received    " << endl;
+    cout << "=========================================" << endl;
+
+
+    cout << "=========================================" << endl;
+}
+
+//*******************************************************************************
