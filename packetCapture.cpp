@@ -1,6 +1,6 @@
 //*******************************************************************************
 //    Name: Kyle McColgan
-//    Date: 13 February 2021
+//    Date: 14 February 2021
 //    File name: packetCapture.cpp
 //
 //   Description: This application program displays a list of network hosts.
@@ -57,6 +57,13 @@ void displayHosts ( )
 
 
     cout << "=========================================" << endl;
+}
+
+//*******************************************************************************
+
+void startSniffing ( )
+{
+
 }
 
 //*******************************************************************************
