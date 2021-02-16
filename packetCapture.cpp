@@ -17,6 +17,8 @@ int main ( )
 {
     const int ERROR_BUFFER_SIZE = 81;
     struct bpf_program firstFilter;
+    char expression [ ] = "port 23";
+    bpf_u_int32 mask;
 
     char * networkDevice;
     char errorMsg [ERROR_BUFFER_SIZE];
@@ -36,6 +38,11 @@ int main ( )
     if ( sessionHandle == nullptr ) 
     {
         cout << "Error: " << errorMsg << endl;
+    }
+
+    if ( pcap_compile(sessionHandle, &firstFilter, expression, 0 mask ) == -1)
+    {
+        cout << "Error " << endl;
     }
 
     pcap_close ( sessionHandle );
