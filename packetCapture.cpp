@@ -42,7 +42,7 @@ int main ( )
 
     if ( pcap_compile(sessionHandle, &firstFilter, expression, 0 mask ) == -1)
     {
-        cout << "Error " << endl;
+        cout << "Error: " << errorMsg << endl;
     }
 
     pcap_close ( sessionHandle );
