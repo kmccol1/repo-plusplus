@@ -1,6 +1,6 @@
 //*******************************************************************************
 //    Name: Kyle McColgan
-//    Date: 16 February 2021
+//    Date: 17 February 2021
 //    File name: packetCapture.cpp
 //
 //   Description: This application program displays a list of network hosts.
@@ -19,6 +19,9 @@ int main ( )
     struct bpf_program firstFilter;
     char expression [ ] = "port 23";
     bpf_u_int32 mask;
+    bpf_u_int32 subnet;
+    struct pcap_pkthdr firstHeader;
+    const u_char * firstPacket;
 
     char * networkDevice;
     char errorMsg [ERROR_BUFFER_SIZE];
@@ -40,10 +43,17 @@ int main ( )
         cout << "Error: " << errorMsg << endl;
     }
 
-    if ( pcap_compile(sessionHandle, &firstFilter, expression, 0 mask ) == -1)
+    if ( pcap_compile(sessionHandle, &firstFilter, expression, 0, subnet ) == -1)
     {
-        cout << "Error: " << errorMsg << endl;
+        cout << "Error " << endl;
     }
+
+    if ( pcap_setfilter ( sessionHandle, &firstHeader ) == -1 ))
+    {
+        cout << "Error" << endl;
+    }
+
+    firstPacket = pcap_next ( sessionHandle, &firstHeader );
 
     pcap_close ( sessionHandle );
 
