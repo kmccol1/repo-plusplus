@@ -1,6 +1,6 @@
 //*******************************************************************************
 //    Name: Kyle McColgan
-//    Date: 18 February 2021
+//    Date: 19 February 2021
 //    File name: packetCapture.cpp
 //
 //   Description: This application program displays a list of network hosts.
@@ -28,7 +28,18 @@ int main ( )
 
     pcap_t * sessionHandle;
 
-    networkDevice = pcap_findalldev ( errorMsg );
+    pcap_if_t * alldevs;
+    pcap_if_t ** alldevs_ptr = &alldevs;
+
+    if ( pcap_findalldevs ( alldevs_ptr, errorMsg ) == -1 )
+    {
+        cout << "Error finding network interface: " << errorMsg << endl;
+    }
+    else
+    {
+        networkDevice = (* alldevs_ptr)->name;
+    }
+    
 
     if ( networkDevice == nullptr )
     {
@@ -48,7 +59,7 @@ int main ( )
         cout << "Error " << endl;
     }
 
-    if ( pcap_setfilter ( sessionHandle, &firstHeader ) == -1 ))
+    if ( pcap_setfilter ( sessionHandle, &firstFilter ) == -1 )
     {
         cout << "Error" << endl;
     }
