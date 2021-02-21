@@ -1,6 +1,6 @@
 //*******************************************************************************
 //    Name: Kyle McColgan
-//    Date: 20 February 2021
+//    Date: 21 February 2021
 //    File name: packetCapture.cpp
 //
 //   Description: This application program displays a list of network hosts.
@@ -68,9 +68,25 @@ int main ( )
 
     firstPacket = pcap_next ( sessionHandle, &firstHeader );
 
+    pcap_loop ( sessionHandle, 0, handlePackets, nullptr );
+
     pcap_close ( sessionHandle );
 
     return 0;
+}
+
+//*******************************************************************************
+
+void handlePackets (u_char * args, const struct pcap_pkthdr * header, const u_char * body )
+{
+    displayPacket(body, *header );
+}
+
+//*******************************************************************************
+
+void displayPacket ( const u_char * packet, struct pcap_pkthdr header )
+{
+    cout << "Length: " << header.len << endl;
 }
 
 //*******************************************************************************
@@ -89,7 +105,7 @@ void displayHosts ( )
 
 void startSniffing ( )
 {
-
+    cout << "Begin listening..." << endl;
 }
 
 //*******************************************************************************
