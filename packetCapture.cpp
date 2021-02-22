@@ -1,6 +1,6 @@
 //*******************************************************************************
 //    Name: Kyle McColgan
-//    Date: 21 February 2021
+//    Date: 22 February 2021
 //    File name: packetCapture.cpp
 //
 //   Description: This application program displays a list of network hosts.
@@ -10,6 +10,16 @@
 #include <iostream>
 #include <pcap.h>
 using namespace std;
+
+//*******************************************************************************
+
+void displayPacket ( const u_char * packet, struct pcap_pkthdr header );
+
+void handlePackets (u_char * args, const struct pcap_pkthdr * header, 
+                    const u_char * body );
+
+void displayHosts ( );
+void startSniffing ( );
 
 //*******************************************************************************
 
@@ -40,7 +50,6 @@ int main ( )
         networkDevice = (* alldevs_ptr)->name;
     }
     
-
     if ( networkDevice == nullptr )
     {
         cout << "Error: " << errorMsg << endl;
@@ -77,13 +86,6 @@ int main ( )
 
 //*******************************************************************************
 
-void handlePackets (u_char * args, const struct pcap_pkthdr * header, const u_char * body )
-{
-    displayPacket(body, *header );
-}
-
-//*******************************************************************************
-
 void displayPacket ( const u_char * packet, struct pcap_pkthdr header )
 {
     cout << "Length: " << header.len << endl;
@@ -91,9 +93,16 @@ void displayPacket ( const u_char * packet, struct pcap_pkthdr header )
 
 //*******************************************************************************
 
+void handlePackets (u_char * args, const struct pcap_pkthdr * header, const u_char * body )
+{
+    displayPacket(body, *header );
+}
+
+//*******************************************************************************
+
 void displayHosts ( )
 {
-    cout << "IP address    " << "    Data sent    " 
+    cout << "IP address    |" << "    Data sent    |" 
          << "    Data received    " << endl;
     cout << "=========================================" << endl;
 
@@ -106,6 +115,8 @@ void displayHosts ( )
 void startSniffing ( )
 {
     cout << "Begin listening..." << endl;
+
+    cout << "Ending listening..." << endl;
 }
 
 //*******************************************************************************
