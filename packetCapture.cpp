@@ -1,7 +1,7 @@
 //*******************************************************************************
 //
 //    Name: Kyle McColgan
-//    Date: 27 February 2021
+//    Date: 28 February 2021
 //    File name: packetCapture.cpp
 //
 //   Description: This application program uses the pcap network API to display 
@@ -115,12 +115,7 @@ void startSniffing ( )
                                        1000, errorMsg);
     }
 
-    if (sessionHandle == nullptr)
-    {
-        cout << "Error: " << errorMsg << endl;
-    }
-
-    if (pcap_compile(sessionHandle, &firstFilter, expression, 0, subnet) == -1)
+    if ( pcap_compile(sessionHandle, &firstFilter, expression, 0, subnet) == -1)
     {
         cout << "Error: pcap compile" << endl;
     }
