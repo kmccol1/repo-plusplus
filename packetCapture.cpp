@@ -1,7 +1,7 @@
 //*******************************************************************************
 //
 //    Name: Kyle McColgan
-//    Date: 1 March 2021
+//    Date: 2 March 2021
 //    File name: packetCapture.cpp
 //
 //   Description: This application program uses the pcap network API to display 
@@ -41,10 +41,10 @@ void beginProcessing ( )
     {
         startSniffing ( );
         displayHosts ( );
+        cin >> userChoice;
     } 
     while ( userChoice != -1 );
     
-    cout << "Goodbye." << endl;
 }
 
 //*******************************************************************************
