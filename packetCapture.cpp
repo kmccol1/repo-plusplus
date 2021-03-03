@@ -1,11 +1,11 @@
 //*******************************************************************************
 //
 //    Name: Kyle McColgan
-//    Date: 2 March 2021
+//    Date: 3 March 2021
 //    File name: packetCapture.cpp
 //
-//   Description: This application program uses the pcap network API to display 
-//                a list of network hosts.
+//   Description: This application program uses the libpcap network API 
+//                to display a list of network hosts.
 //
 //*******************************************************************************
 
@@ -17,7 +17,8 @@ using namespace std;
 
 void beginProcessing ( );
 void displayPacket ( const u_char * packet, struct pcap_pkthdr header );
-void handlePackets (const struct pcap_pkthdr * header, const u_char * body );
+void handlePackets ( u_char * kwargs, const struct pcap_pkthdr * header,
+                     const u_char * body );
 void displayHosts ( );
 void startSniffing ( );
 
@@ -56,7 +57,8 @@ void displayPacket ( const u_char * packet, struct pcap_pkthdr header )
 
 //*******************************************************************************
 
-void handlePackets (const struct pcap_pkthdr * header, const u_char * body )
+void handlePackets ( u_char * kwargs, const struct pcap_pkthdr * header,
+                     const u_char * body )
 {
     displayPacket(body, *header );
 }
