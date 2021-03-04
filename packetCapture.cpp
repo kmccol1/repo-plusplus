@@ -1,7 +1,7 @@
 //*******************************************************************************
 //
 //    Name: Kyle McColgan
-//    Date: 3 March 2021
+//    Date: 4 March 2021
 //    File name: packetCapture.cpp
 //
 //   Description: This application program uses the libpcap network API 
@@ -45,7 +45,6 @@ void beginProcessing ( )
         cin >> userChoice;
     } 
     while ( userChoice != -1 );
-    
 }
 
 //*******************************************************************************
@@ -91,8 +90,6 @@ void startSniffing ( )
     pcap_if_t *alldevs;
     pcap_if_t **alldevs_ptr = &alldevs;
 
-    cout << "Begin listening..." << endl;
-
     if (pcap_findalldevs(alldevs_ptr, errorMsg) == -1)
     {
         cout << "Error finding network interface: " << errorMsg << endl;
@@ -123,10 +120,7 @@ void startSniffing ( )
     }
 
     pcap_loop(sessionHandle, 0, handlePackets, nullptr);
-
     pcap_close(sessionHandle);
-
-    cout << "Ending listening..." << endl;
 }
 
 //*******************************************************************************
