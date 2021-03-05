@@ -1,7 +1,7 @@
 //*******************************************************************************
 //
 //    Name: Kyle McColgan
-//    Date: 4 March 2021
+//    Date: 5 March 2021
 //    File name: packetCapture.cpp
 //
 //   Description: This application program uses the libpcap network API 
@@ -20,7 +20,7 @@ void displayPacket ( const u_char * packet, struct pcap_pkthdr header );
 void handlePackets ( u_char * kwargs, const struct pcap_pkthdr * header,
                      const u_char * body );
 void displayHosts ( );
-void startSniffing ( );
+void readPackets ( );
 
 //*******************************************************************************
 
@@ -40,7 +40,7 @@ void beginProcessing ( )
 
     do
     {
-        startSniffing ( );
+        readPackets ( );
         displayHosts ( );
         cin >> userChoice;
     } 
@@ -76,7 +76,7 @@ void displayHosts ( )
 
 //*******************************************************************************
 
-void startSniffing ( )
+void readPackets ( )
 {
     const int ERROR_BUFFER_SIZE = 81;
 
