@@ -1,7 +1,7 @@
 //*******************************************************************************
 //
 //    Name: Kyle McColgan
-//    Date: 10 March 2021
+//    Date: 12 March 2021
 //    File name: packetCapture.cpp
 //
 //   Description: This application program uses the libpcap network API 
