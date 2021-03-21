@@ -1,13 +1,3 @@
-//*******************************************************************************
-//
-//    Name: Kyle McColgan
-//    Date: 17 March 2021
-//    File name: packetCapture.cpp
-//
-//   Description: This application program uses the libpcap network API 
-//                to display a list of network hosts.
-//
-//*******************************************************************************
 
 #include <iostream>
 #include <pcap.h>
