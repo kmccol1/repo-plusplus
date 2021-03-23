@@ -1,3 +1,9 @@
+//*******************************************************************************
+//
+//    Date: 23 March 2021
+//    Description: This program implements the libpcap API to list network hosts.
+//
+//*******************************************************************************
 
 #include <iostream>
 #include <pcap.h>
