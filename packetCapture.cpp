@@ -1,7 +1,10 @@
 //*******************************************************************************
 //
-//    Date: 2 April 2021
-//    Description: This program implements the libpcap API to list network hosts.
+//    Date: 3 April 2021
+//    File name: packetCapture.cpp
+//
+//   Description: This application program uses the libpcap network API 
+//                to display a list of network hosts.
 //
 //*******************************************************************************
 
